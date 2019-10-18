@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall for Magazine Site Controller.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function magazine_site_controller_install() {
+
+  \Drupal::service('theme_installer')->install(['magazine_theme']);
+  \Drupal::service('theme_handler')->setDefault('magazine_theme');
+
+  $config = \Drupal::service('config.factory')->getEditable('system.theme');
+  $config->set('admin', 'seven')->save();
+}

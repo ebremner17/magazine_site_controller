@@ -20,8 +20,8 @@ function magazine_site_controller_page_attachments(array &$attachments) {
   $theme = \Drupal::theme()->getActiveTheme()->getName();
 
   if ($theme == 'seven') {
-    $attachments['#attached']['library'][] = 'cc_site_controller/extra_admin';
+    $attachments['#attached']['library'][] = 'magazine_site_controller/extra_admin';
   }
 
-  $attachments['#attached']['library'][] = 'cc_site_controller/magazine-toolbar';
+  $attachments['#attached']['library'][] = 'magazine_site_controller/magazine-toolbar';
 }
