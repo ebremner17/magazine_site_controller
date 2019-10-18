@@ -1,0 +1,13 @@
+magazine.site_settings_form:
+  title: 'Site settings configuration'
+  route_name: magazine_site_controller.site_settings_form
+  description: 'Site settings'
+  parent: system.admin_config_system
+  weight: 99
+sitesettings.main:
+  title: 'Site settings'
+  description: 'Site settings for your unit'
+  parent: system.admin
+  route_name: magazine_site_controller.site_settings_form
+  weight: 100
+  restrict access: TRUE

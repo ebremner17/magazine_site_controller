@@ -1,0 +1,13 @@
+<?php
+
+/**
+* Implements hook_preprocess_html().
+*
+* Add styling class for type of website.
+*/
+function cc_site_controller_preprocess_html(&$variables) {
+
+  $config = \Drupal::config('magazine.sitesettings');
+
+  $variables['attributes']['class'][] = 'magazine-theme';
+}

@@ -1,0 +1,8 @@
+.magazine-theme.label {
+  color: #0074bd;
+}
+
+#user-admin-permissions .checkbox,
+#user-admin-permissions .radio {
+  display: table-cell;
+}

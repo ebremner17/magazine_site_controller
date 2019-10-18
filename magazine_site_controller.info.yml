@@ -1,0 +1,27 @@
+name: 'Cadets Canada site controller'
+type: module
+core: 8.x
+dependencies:
+  - cacheflush
+  - ckeditor
+  - editor
+  - features
+  - field
+  - filter
+  - image
+  - layout_builder_modal
+  - layout_builder_styles
+  - mailsystem
+  - node
+  - options
+  - path
+  - pathauto
+  - publishcontent
+  - redirect_after_login
+  - twig_field_value
+  - user
+  - video_embed_wysiwyg
+  - we_megamenu
+themes:
+  - magazine_theme
+core_incompatible: false
