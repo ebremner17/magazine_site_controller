@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Config\FileStorage;
+
 /**
 * Implements hook_preprocess_html().
 *
@@ -24,4 +26,54 @@ function magazine_site_controller_page_attachments(array &$attachments) {
   }
 
   $attachments['#attached']['library'][] = 'magazine_site_controller/magazine-toolbar';
+}
+
+/**
+ * Helper function.
+ *
+ * Update the config in a specific module.
+ *
+ * @param string $module
+ * @param array $files
+ */
+function _magazine_site_controller_update_config(string $module, array $imports) {
+
+  // Step through each of the import files and find storage config.
+  foreach ($imports as $key => $import) {
+
+    // If it is a storage config, place in first part of array.
+    if (strpos($import, '.storage.') !== FALSE) {
+
+      // Set storage config into first part of array.
+      $new_imports[] = $import;
+
+      // Unset from imports array.
+      unset($imports[$key]);
+    }
+  }
+
+  // If we have new imports, meaning we have storage config changes,
+  // step through each of the imports and add to the new imports.
+  if (isset($new_imports) && count($new_imports) > 0) {
+
+    // Step through each of the import files and add to the new imports.
+    foreach ($imports as $import) {
+
+      // Add to the new imports array.
+      $new_imports[] = $import;
+    }
+
+    // Set the imports array to the new imports.
+    $imports = $new_imports;
+  }
+
+  // Setup the CMI.
+  $config_path = drupal_get_path('module', $module) . '/config/install';
+  $source = new FileStorage($config_path);
+  $config_storage = \Drupal::service('config.storage');
+
+  // Step through each changed config, and update/install config.
+  foreach ($imports as $import) {
+    $config_storage->write($import, $source->read($import));
+  }
 }
