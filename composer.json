@@ -1,0 +1,7 @@
+{
+  "name": "ebremner17/magazine_site_controller",
+  "description": "Site controller for magazine sites.",
+  "type": "drupal-custom-module",
+  "homepage": "https://github.com/ebremner17/magazine_site_controller",
+  "keywords": ["Drupal"]
+}
