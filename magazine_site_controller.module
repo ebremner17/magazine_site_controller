@@ -5,7 +5,7 @@
 *
 * Add styling class for type of website.
 */
-function cc_site_controller_preprocess_html(&$variables) {
+function magazine_preprocess_html(&$variables) {
 
   $config = \Drupal::config('magazine.sitesettings');
 
