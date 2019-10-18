@@ -5,9 +5,23 @@
 *
 * Add styling class for type of website.
 */
-function magazine_preprocess_html(&$variables) {
+function magazine_site_controller_preprocess_html(&$variables) {
 
   $config = \Drupal::config('magazine.sitesettings');
 
   $variables['attributes']['class'][] = 'magazine-theme';
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function magazine_site_controller_page_attachments(array &$attachments) {
+
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+
+  if ($theme == 'seven') {
+    $attachments['#attached']['library'][] = 'cc_site_controller/extra_admin';
+  }
+
+  $attachments['#attached']['library'][] = 'cc_site_controller/magazine-toolbar';
 }

@@ -1,4 +1,4 @@
-name: 'Cadets Canada site controller'
+name: 'Magazine site controller'
 type: module
 core: 8.x
 dependencies:

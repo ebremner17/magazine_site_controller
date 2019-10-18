@@ -2,7 +2,7 @@ extra_admin:
   css:
     theme:
       css/extra_admin.css: {}
-cc-toolbar:
+magazine-toolbar:
   version: 1.0
   css:
     theme:

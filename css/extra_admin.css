@@ -6,3 +6,7 @@
 #user-admin-permissions .radio {
   display: table-cell;
 }
+
+body.magazine-theme {
+  background-color: white;
+}
